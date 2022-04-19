@@ -1,0 +1,34 @@
+<br />
+<table class="table table-striped
+              table-responsive table-hover">
+  <thead>
+    <th>Company Code</th>
+    <th>Company Name</th>
+    <th>CEO</th>
+    <th>Stock Price</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let company of companies">
+      <td>{{company.companyCode}}</td>
+      <td>{{company.companyName }}</td>
+      <td>{{company.ceo }}</td>
+      <td>{{company.stockPrice }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="searchCompany(company)">Open</button> &nbsp;&nbsp;
+      </td>
+      <td>
+        <button class="btn btn-success" (click)="addStockPrice(company)">Add Stock</button> &nbsp;&nbsp;
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteCompany(company)">Delete</button> &nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr *ngIf="!companies || companies.length==0">
+      <th colspan="5">
+        <p class="text-right text-danger">
+          Sorry no companies are registered..!
+        </p>
+      </th>
+    </tr>
+  </tbody>
+</table>

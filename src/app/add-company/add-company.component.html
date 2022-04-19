@@ -1,0 +1,96 @@
+<br />
+<br />
+<div class="col-md-6 col-md-offset-2">
+  <h3>Register Company</h3>
+
+  <br />
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!!</strong>  Company Registered successfully..!
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!-- design for adding form -->
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <!-- companyCode -->
+    <div class="form-group">
+      <label for="companyCode">Company Code:</label>
+      <input type="number" class="form-control" formControlName="companyCode" id="companyCode"
+        placeholder="Enter Company Code" />
+      <div *ngIf="submitted && addForm.controls.companyCode.errors" class="error">
+        <div class="text-danger" *ngIf="addForm.controls.companyCode.errors.required">
+          companyCode required...
+        </div>
+      </div>
+    </div>
+
+    <!-- companyName -->
+    <div class="form-group">
+      <label for="companyName">Company Name:</label>
+      <input type="text" class="form-control" formControlName="companyName" id="companyName"
+        placeholder="Enter Company Name" />
+      <div *ngIf="submitted && addForm.controls.companyName.errors" class="error">
+        <div class="text-danger" *ngIf="addForm.controls.companyName.errors.required">
+          Company Name required...
+        </div>
+      </div>
+    </div>
+
+    <!-- ceo -->
+    <div class="form-group">
+      <label for="ceo">CEO Name:</label>
+      <input type="text" class="form-control" formControlName="ceo" id="ceo" placeholder="Enter CEO Name" />
+      <div *ngIf="submitted && addForm.controls.ceo.errors" class="error">
+        <div class="text-danger" *ngIf="addForm.controls.ceo.errors.required">
+          CEO Name required...
+        </div>
+      </div>
+    </div>
+
+    <!-- turnOver -->
+    <div class="form-group">
+      <label for="turnOver">TurnOver:</label>
+      <input type="number" class="form-control" formControlName="turnOver" id="turnOver" placeholder="Enter TurnOver" />
+      <div *ngIf="submitted && addForm.controls.turnOver.errors" class="error">
+        <div class="text-danger" *ngIf="addForm.controls.turnOver.errors.required">
+          TurnOver required...
+        </div>
+        <div class="text-danger" *ngIf="addForm.controls.turnOver.errors.min">
+          TurnOver should be more than 100000000
+        </div>
+      </div>
+    </div>
+
+    <!-- website -->
+    <div class="form-group">
+      <label for="website">Website Name:</label>
+      <input type="text" class="form-control" formControlName="website" id="website" placeholder="Website Name" />
+      <div *ngIf="submitted && addForm.controls.website.errors" class="error">
+        <div class="text-danger" *ngIf="addForm.controls.website.errors.required">
+          Website Name required...
+        </div>
+      </div>
+    </div>
+
+    <!-- stockExchange -->
+    <div class="form-group">
+      <label for="stockExchange">Stock Exchange:</label>
+      <input type="text" class="form-control" formControlName="stockExchange" id="stockExchange"
+        placeholder="Stock Exchange" />
+      <div *ngIf="submitted && addForm.controls.stockExchange.errors" class="error">
+        <div class="text-danger" *ngIf="addForm.controls.stockExchange.errors.required">
+          Stock Exchange Name required...
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-success">Register</button> &nbsp;&nbsp;
+
+    <button class="btn btn-danger" type="reset">Cancel</button> &nbsp;&nbsp;
+
+    <a class="btn btn-warning" [routerLink]="['/home']">
+      Back to Home</a>
+    <br />
+    <br />
+  </form>
+</div>
