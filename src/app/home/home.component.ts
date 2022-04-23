@@ -12,26 +12,26 @@ export class HomeComponent implements OnInit {
   searchForm: FormGroup;
   submitted: boolean = false;
   alert: boolean = false;
- 
-  constructor(private formBuilder:FormBuilder,private router: Router) { }
 
-  onSubmit(){
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
+
+  onSubmit() {
     this.submitted = true;
     if (this.searchForm.invalid) {
       return;
     }
     console.log(this.searchForm.value);
     localStorage.removeItem("companyCode");
-    localStorage.setItem("companyCode",this.searchForm.controls.companyCode.value.toString());
+    localStorage.setItem("companyCode", this.searchForm.controls.companyCode.value.toString());
     console.log(localStorage.getItem("companyCode"));
     this.router.navigate(['search-company']);
   }
 
 
-  registerCompany():void{
+  registerCompany(): void {
     this.router.navigate(['add-company']);
   }
-  listCompanies():void{
+  listCompanies(): void {
     this.router.navigate(['list-company']);
   }
   ngOnInit() {

@@ -11,7 +11,7 @@
     <th>Stock Price</th>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngIf="company.companyCode !==null">
       <td>{{company.companyCode}}</td>
       <td>{{company.companyName }}</td>
       <td>{{company.ceo }}</td>
@@ -19,21 +19,85 @@
       <td>{{company.website }}</td>
       <td>{{company.stockExchange }}</td>
       <td>{{company.stockPrice }}</td>
-      <!-- <td> 
-                    <button class="btn btn-primary"
-                    (click)="searchCompany(company)">Open</button> &nbsp;&nbsp;
-                  </td>
-                <td> 
-                  <button class="btn btn-danger"
-                  (click)="deleteCompany(company)">Delete</button> &nbsp;&nbsp;
-                </td> -->
+      <td>
+        <button class="btn btn-success" (click)="addStockPrice(company)">Add Stock</button> &nbsp;&nbsp;
+      </td>
     </tr>
-    <tr *ngIf="!company || !company.companyCode">
+    <tr *ngIf="company.companyCode == null ">
       <th colspan="20">
         <p class="text-right text-danger">
           no details are avaible for this company code
         </p>
       </th>
     </tr>
+  </tbody>
+</table>
+
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <tr>
+    <td>
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" class="form-control" formControlName="startDate" id="start date"
+          placeholder="Eg: 2022-03-20" />
+        <div *ngIf="submitted && searchForm.controls.startDate.errors" class="error">
+          <div class="text-danger" *ngIf="searchForm.controls.startDate.errors.required">
+            Start Date required...
+          </div>
+        </div>
+      </div>
+    </td> &nbsp; &nbsp;&nbsp;
+    <td>
+      <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" class="form-control" formControlName="endDate" id="end date" placeholder="Eg: 2022-03-20" />
+        <div *ngIf="submitted && searchForm.controls.endDate.errors" class="error">
+          <div class="text-danger" *ngIf="searchForm.controls.endDate.errors.required">
+            End Date required...
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <td>
+    <button class="btn btn-success">Search</button>
+  </td>
+  <label class="text-danger" *ngIf="searchForm.errors">{{ searchForm.errors?.dates | json }}</label>
+</form>
+<br /><br />
+<table class="table table-striped
+              table-responsive table-hover">
+  <thead>
+    <th>Stock Price</th>
+    <th>Added Date</th>
+    <th>Added Time</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stockPrice of stockPrices">
+      <td>{{stockPrice.stockPrice}}</td>
+      <td>{{stockPrice.addedDate }}</td>
+      <td>{{stockPrice.addedTime }}</td>
+    </tr>
+    <tr *ngIf="!stockPrices || stockPrices.length==0">
+      <th colspan="5">
+        <p class="text-right text-danger">
+          Select dates and search to see stocks..
+        </p>
+      </th>
+    </tr>
+  </tbody>
+</table>
+<br />
+<table class="table table-striped
+              table-responsive table-hover">
+  <thead>
+    <th>Min Price</th>
+    <th>Max Price</th>
+    <th>Avg Price</th>
+  </thead>
+  <tbody>
+    <td>{{min}}</td>
+    <td>{{max}}</td>
+    <td>{{avg}}</td>
   </tbody>
 </table>

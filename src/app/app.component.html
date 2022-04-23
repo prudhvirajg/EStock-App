@@ -1,32 +1,22 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!-- <div style="text-align:center">
-  <h1 class="text-success">
-    Welcome to {{ title }}!
-  </h1>
-  <h2 class="text-right">
-  Developed By {{ developer}}</h2>
-</div>
-<h3>{{2+3*5-10}}</h3>
-{{ a*b }}
 
-<router-outlet></router-outlet> -->
 
 <div class="container">
-  <div style=" color: rgb(249, 250, 249);background-color:rgb(0, 26, 255);padding: 5px">  
-      <!--  -->
-  <h1 style="text-align: center;" > 
-   <a [routerLink]="['/home']"><img style="max-width: 4% !important ; " src="../assets/images/Bull.png" /></a> 
-    eStock Market
-  </h1>
+  <div style=" color: rgb(249, 250, 249);background-color:rgb(0, 26, 255);padding: 2px">
+    <!--  --><tr> 
+    <h1 style="text-align: center;">
+      <a [routerLink]="['/home']"><img style="max-width: 5% !important ; " src="../assets/images/Bull.png" /></a>
+      e-Stock Market
+    </h1>
+  </tr>
   </div>
 
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-15">
       <router-outlet></router-outlet>
     </div>
   </div>
-  <br/>
-  <br/>
+  <br />
+  <br />
 
   <footer>
     <div class="row">

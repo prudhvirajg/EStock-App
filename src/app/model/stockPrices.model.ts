@@ -1,5 +1,5 @@
 export class StockPrices {
     stockPrice!: number;
-    addedDate!:String;
-    addedTime!:String;
+    addedDate!: String;
+    addedTime!: String;
 }

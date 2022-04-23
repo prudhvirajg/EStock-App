@@ -11,7 +11,7 @@ import { CompanyService } from '../services/company.service';
 export class AddCompanyComponent implements OnInit {
   addForm: FormGroup;
   submitted: boolean = false;
-  alert:boolean =false;
+  alert: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private companyService: CompanyService) { }
   onSubmit() {
@@ -20,13 +20,13 @@ export class AddCompanyComponent implements OnInit {
       return;
     }
     console.log(this.addForm.value);
-    this.companyService.createCompany(this.addForm.value).subscribe((data)=> {
-      console.warn("registered succesfully",data)
-      })
-      this.alert =true;
+    this.companyService.createCompany(this.addForm.value).subscribe((data) => {
+      console.warn("registered succesfully", data)
+    })
+    this.alert = true;
   }
-  closeAlert(){
-    this.alert=false;
+  closeAlert() {
+    this.alert = false;
   }
 
 
@@ -35,7 +35,7 @@ export class AddCompanyComponent implements OnInit {
       companyCode: ['', Validators.required],
       companyName: ['', Validators.required],
       ceo: ['', Validators.required],
-      turnOver: ['', [Validators.required,Validators.min(100000000)]],
+      turnOver: ['', [Validators.required, Validators.min(100000000)]],
       website: ['', Validators.required],
       stockExchange: ['', Validators.required],
     });

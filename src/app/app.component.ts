@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EStock-App';
-  todaysDate= new Date();
+  todaysDate = new Date();
 }
