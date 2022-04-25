@@ -20,7 +20,7 @@
           stockPrice required...
         </div>
         <div class="text-danger" *ngIf="addForm.controls.stockPrice.errors.pattern">
-          stockPrice must be a fractional value
+          stockPrice must be a non negative and decimal number with only 2 decimal points
         </div>
       </div>
     </div>

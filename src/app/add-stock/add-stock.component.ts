@@ -38,7 +38,7 @@ export class AddStockComponent implements OnInit {
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       stockPrice: ['', [Validators.required
-        // , Validators.pattern('/^\d*\.\d{0,2}$/g')
+        , Validators.pattern(/^[+]?([0-9]+(?:[\.][0-9]{0,2}))$/)
       ]]
     });
   }

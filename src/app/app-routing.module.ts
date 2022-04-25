@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'add-company', component: AddCompanyComponent },
   { path: 'list-company', component: ListCompanyComponent },
   { path: 'search-company', component: SearchCompanyComponent },
+  { path: 'add-stock', component: AddStockComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }
 ];
