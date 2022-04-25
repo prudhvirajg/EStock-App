@@ -1,26 +1,28 @@
 <br /><br />
 <tr>
+    <td> <span style="margin-right: 20px;"></span>
+        <button class="btn  btn-success" (click)="registerCompany()">Add Company</button> &nbsp; &nbsp;
+    </td>
+    <td> <span style="margin-right: 280px;"></span>
+        <button class="btn btn-success"  (click)="listCompanies()">List Companies</button>
+        &nbsp; &nbsp;
+    </td><span style="margin-right: 250px;"></span>
     <td>
-        <button class="btn  btn-success" (click)="registerCompany()">Add Company</button> &nbsp;
+        <form [formGroup]="searchForm"  (ngSubmit)="onSubmit() ">
+    <td>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="companyCode" id="company code"
+                placeholder="Enter Company Code" />
+            <div *ngIf="submitted && searchForm.controls.companyCode.errors" class="error">
+                <div class="text-danger" *ngIf="searchForm.controls.companyCode.errors.required">
+                    Company Code required...
+                </div>
+            </div>
+        </div>
     </td>
     <td>
-        <button class="btn btn-success" style="text-align: right;" (click)="listCompanies()">List Companies</button>
-        &nbsp;
+        &nbsp; <button class="btn btn-success">Search</button>
     </td>
-    <span style="text-align-last: right;">
-        <td>
-            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <input type="text" class="form-control" formControlName="companyCode" id="company code"
-                        placeholder="Enter Company Code" />
-                    <div *ngIf="submitted && searchForm.controls.companyCode.errors" class="error">
-                        <div class="text-danger" *ngIf="searchForm.controls.companyCode.errors.required">
-                            Company Code required...
-                        </div>
-                    </div>
-                </div> &nbsp;&nbsp;
-                <button class="btn btn-success">Search</button>
-            </form>
-        </td>
-    </span>
+    </form>
+    </td>
 </tr>
