@@ -12,7 +12,7 @@
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <!-- stockPrice -->
     <div class="form-group">
-      <label for="stockPrice">Stock Price:</label>
+      <label for="stockPrice">Stock Price(&#8377;):</label>
       <input type="number" class="form-control" formControlName="stockPrice" id="stockPrice"
         placeholder="Enter Stock Price" />
       <div *ngIf="submitted && addForm.controls.stockPrice.errors" class="error">

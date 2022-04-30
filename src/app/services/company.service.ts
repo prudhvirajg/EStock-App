@@ -8,7 +8,7 @@ import { Company } from '../model/company.model';
 export class CompanyService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8000/api/v1.0/market/company';
+  baseUrl: string = 'http://localhost:8010/api/v1.0/market/company';
 
   //get all companies
   getCompanies() {

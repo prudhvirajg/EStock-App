@@ -9,7 +9,7 @@ import { StockPrices } from '../model/stockPrices.model';
 export class StockService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8001/api/v1.0/market/stock';
+  baseUrl: string = 'http://localhost:8011/api/v1.0/market/stock';
 
 
   //add stock

@@ -24,7 +24,7 @@ export class ListCompanyComponent implements OnInit {
     if (result) {
       this.companyService.deleteCompany(company.companyCode)
         .subscribe(data => {
-          this.companies = this.companies.filter(c => c !== company)
+          this.companies = this.companies.filter(c => c !== company);
         })
     }
   }
