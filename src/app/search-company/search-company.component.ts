@@ -17,7 +17,6 @@ export class SearchCompanyComponent implements OnInit {
   submitted: boolean = false;
   searchForm: FormGroup;
   stockPrices: StockPrices[];
-  stockProceList: number[];
   min: number;
   max: number;
   avg: number;
@@ -67,7 +66,7 @@ export class SearchCompanyComponent implements OnInit {
         let priceList = this.stockPrices.map(s => s.stockPrice);
         this.min = Math.min(...priceList);
         this.max = Math.max(...priceList);
-        this.avg = this.findAvgPrice(priceList)
+        this.avg = Math.round((this.findAvgPrice(priceList)+Number.EPSILON)*100)/100 ;
         console.log(priceList);
       });
     }
